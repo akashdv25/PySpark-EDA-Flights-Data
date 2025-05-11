@@ -18,7 +18,7 @@
 
 This project implements a scalable data processing pipeline using PySpark to analyze flight delays across the United States. The analysis focuses on flight data from 2015, processing information about delays, cancellations, and airline performance.
 
-![](img/data-pipeline.jpg)
+![](img/flow-dig.png)
 
 ### Objectives
 - Build an efficient data processing pipeline using PySpark
