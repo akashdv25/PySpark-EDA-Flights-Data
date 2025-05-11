@@ -43,4 +43,38 @@
 13. Completed the basic EDA notebook and saved A dataframe output  to s3 bucket.
 
 14. Implemented complete readme and EDA notebook with images to make it more informative and engaging.
+
+15. Learnt about Optimization techniques in pyspark while dealing with Big data we need these :-
+    - Use df.select('col name') instead of '*' reduces data shuflling and memory usage. 
+    - Apply .filter() or .where() as early as possible,  reduces the amount of data read from disk and minimizes shuffling       across the network. Less data = faster execution.
+    - Avoid UDFs unless absolutely necessary , use pyspark built in functions as they are more efficient
+    - Use .cache() only when dataframe is reused multiple times , avoid caching large datasets unless needed.
+    - Avoid costly shuffles in big-small table joins , by using brodcast joins as it avoids shuffle by sending small     
+      dataset to each worker node
+    - Repartition data for parallelism: df.repartition("col") , Good partitioning ensures tasks are evenly distributed           across workers. Without it, some workers process more data (“data skew”), causing longer execution times.
+    - Never use collect() or toPandas() on large datasets , These actions move data to the driver, which can cause Out of         Memory (OOM) errors if the dataset is too big.
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
