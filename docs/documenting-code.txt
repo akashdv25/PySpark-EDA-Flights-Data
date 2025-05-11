@@ -1,0 +1,46 @@
+# Documenting Code
+
+1. I started by creating the basic project structure including folders like src , docs etc and the git repository.
+
+2. I created a virtual environment and installed the necessary packages.
+
+3. Then began by uplaoding the data to the s3 bucket using aws python sdk through boto3 made the code modular and reusable.
+
+4. Created another module in src for data ingestion and created functions to load the data from s3 bucket and initialize sparksession. 
+
+5. Created a .env file to store the environment variables.
+
+6. Went to Iam console in aws and got the access key with getobject and putobject permissions (s3 bucket)
+
+7. Studed about hadoop-aws integration through s3a:// protocol and the spark.jars.packages to include the hadoop-aws package.
+
+8. Then started creating the notebook sessions and basic data analysis like schema etc
+
+9. Created a new module in src for data cleaning and created functions to clean the data.
+    1- Null Handling Logic
+        * If a column has >20% nulls:
+            - Drop the entire column.
+        
+        * If a column has <20% nulls:
+            - Drop the rows where the column is null.
+
+            (implemented a verbose for all this as well)
+        * Reason why imputation is not done:-
+            - The data is related to flights which is sensitive data and imputation would introduce bias into the data.
+
+10. Learnt about brodcast joins and its implementation:-
+    - Broadcast joins are used to join a small DataFrame with a large DataFrame when the small DataFrame is broadcasted to every worker node in the cluster.
+    - This is used to avoid shuffling the data and to improve the performance of the join operation.
+
+11. Learnt about repartitioning and its implementation:-
+    - Repartitioning is used to change the number of partitions in the DataFrame.
+    - This is used to improve the performance of the join operation.
+    - The number of partitions is changed by using the repartition function.
+
+12. Learnt about UDFs and their implementation:-
+    - UDFs are used to create custom functions in PySpark but native pyspark functions are faster and more efficient.
+
+13. Completed the basic EDA notebook and saved A dataframe output  to s3 bucket.
+
+14. Implemented complete readme and EDA notebook with images to make it more informative and engaging.
+    

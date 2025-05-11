@@ -1,1 +1,7 @@
 pyspark==3.5.5
+pandas==2.2.3
+numpy==2.2.5
+matplotlib==3.10.3
+seaborn==0.13.2
+boto3==1.38.13
+python-dotenv==1.1.0

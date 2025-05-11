@@ -1,0 +1,100 @@
+PySpark Assignment: Flight Delay Data Analysis
+
+1. Problem Statement
+Build a scalable data processing pipeline using PySpark to analyze flight delays across the United States. The objective is to simulate a real-world data engineering workflow involving:
+- Data ingestion
+- Data cleaning
+- Data transformation and enrichment
+- Data analysis (using both DataFrame and SQL APIs)
+- Output delivery
+
+The project will assess your proficiency in PySpark, efficient data processing, and integration with external storage systems. Proper version control and documentation are required.
+
+2. Dataset
+Source: https://www.kaggle.com/datasets/usdot/flight-delays
+Files:
+- flights.csv: Flight-level data (departure, arrival, delays, cancellations)
+- airlines.csv: Airline code to name mapping
+- airports.csv: Airport code to name/location mapping
+
+Instructions:
+Download and extract these files locally before starting the assignment. Do not commit raw data files to version control.
+
+3. Project Structure
+- Organize code into a src/ directory with logical modules:
+  - data_ingestion.py
+  - data_cleaning.py
+  - data_enrichment.py
+  - data_analysis.py
+  - transformations.py
+  - utils.py
+- Use a data/ directory for processed/intermediate data (not raw).
+- Use a docs/ directory for documentation.
+- Include a requirements.txt for dependencies.
+- Use .gitignore to exclude raw data and sensitive files.
+
+4. Tasks & Requirements
+Task 1: Data Ingestion
+- Load all CSV files into PySpark DataFrames.
+- Print schema and sample records for validation.
+- Simulate cloud storage interaction (e.g., upload or reference files using a Python SDK such as boto3, gcsfs, or similar).
+
+Task 2: Data Cleaning
+- Identify and handle missing, null, or inconsistent values.
+- Filter, drop, or impute data as needed.
+- Remove duplicate records.
+- Log all cleaning steps and document data quality issues.
+
+Task 3: Data Enrichment
+- Join flights with airlines and airports for enriched context.
+- Derive new columns:
+  - Properly formatted flight date column.
+  - Categorized delay labels (e.g., On-Time, Short, Medium, Long delays).
+- Apply optimization techniques:
+  - Use broadcast joins for small reference datasets.
+  - Repartition DataFrames as appropriate.
+  - Cache frequently used DataFrames.
+
+Task 4: Data Analysis
+- Use both DataFrame and Spark SQL APIs to answer:
+  - Monthly flight volume and percentage of delayed flights.
+  - Airline-wise average departure delay and on-time performance.
+  - Total number of cancellations and their distribution by cancellation reason.
+- At least one analysis must use Spark SQL.
+- Document analysis methodology and findings.
+
+Task 5: Custom Transformations & Optimization
+- Implement a transformation using a UDF to classify arrival delays.
+- Replace the UDF with equivalent native PySpark functions.
+- Compare and document performance between the two approaches.
+
+Task 6: Output & Delivery
+- Save result datasets in Parquet format (preferred) or CSV.
+- Simulate output delivery (e.g., upload to cloud storage using a Python SDK).
+- Maintain a clear, structured GitHub repository:
+  - All code, configs, and documentation
+  - No raw datasets or sensitive credentials
+- Include a comprehensive README.md with:
+  - Project overview and objectives
+  - Summary of key steps
+  - Analysis findings
+  - Performance comparison notes
+  - Setup and execution instructions
+
+5. Submission Guidelines
+- Share a GitHub repository link containing:
+  - All source code (scripts or notebooks)
+  - Clean, modular project structure
+  - Descriptive commit history
+  - Complete README as specified above
+- Do not include raw dataset files or sensitive credentials.
+- Ensure the project runs end-to-end in a clean local environment.
+
+6. Additional Requirements
+- Code Quality: Follow PEP 8, use type hints, meaningful variable names, and maintainable code.
+- Documentation: Use docstrings, inline comments, and maintain up-to-date documentation.
+- Performance: Optimize memory usage, minimize shuffling, and document bottlenecks.
+- Security: Do not hardcode credentials; use environment variables for sensitive information.
+- Data Quality: Validate input data, handle outliers, and document data quality issues.
+- Version Control: Use meaningful commit messages, feature branches, and a clean commit history.
+
